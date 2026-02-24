@@ -8,3 +8,6 @@ Pillow>=10,<13
 
 # Dataset visualization / QA
 matplotlib>=3.7,<4
+
+# YouTube video downloading
+yt-dlp>=2024.1,<2025
