@@ -18,6 +18,7 @@ Scope `specs/` to modularly map the project, and split specs by logical area whe
 | [`model_training_pipeline.md`](./model_training_pipeline.md) | `building_realtime.md` (+ class definitions from `dataset.md`) | Detector architecture, data generator behavior, training split, callbacks, staged training, and model artifacts. |
 | [`realtime_inference_and_demo.md`](./realtime_inference_and_demo.md) | `building_realtime.md`, `final_task.md` | Inference API, overlay rendering, video/webcam processing, demo outputs, and final-task alignment. |
 | [`team_lead_contracts.md`](./team_lead_contracts.md) | `roles.md` | Team Lead integration contracts for parallel workstreams: interfaces, handoffs, acceptance criteria, and integration cadence. |
+| [`team_lead_interface_v0_1.md`](./team_lead_interface_v0_1.md) | `roles.md`, `specs/team_lead_contracts.md` | Concrete kickoff interface schemas/examples (`v0.1`) for dataset manifest, splits, generator batches, model I/O, and inference outputs. |
 
 ## Templates
 

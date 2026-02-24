@@ -9,6 +9,7 @@ Current planning assumption for this revision:
 
 Source:
 - `roles.md`
+- `specs/team_lead_interface_v0_1.md`
 
 ## Team Assignments (Current)
 
@@ -33,6 +34,14 @@ The Team Lead owns:
 
 Source:
 - `roles.md`
+
+## Concrete Interface Specification
+
+The concrete kickoff schemas, example payloads, and function signatures are defined in:
+
+- `specs/team_lead_interface_v0_1.md`
+
+This contracts spec remains the higher-level ownership/handoff/acceptance document.
 
 ## Contract 1: Dataset Collection -> Downstream Consumers
 
