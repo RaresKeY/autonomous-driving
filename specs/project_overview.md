@@ -44,9 +44,12 @@ Evidence:
 ## Repository State (Observed)
 
 - Root content is documentation-heavy (`define.md`, `dataset.md`, `building_realtime.md`, `final_task.md`) plus `specs/` scaffolding.
+- A top-level `requirements.txt` is present and captures the documented Python dependencies for dataset prep, training, and inference (`tensorflow`, `numpy`, `opencv-python`, `matplotlib`, `Pillow`).
 - The model and pipeline logic currently exists as code embedded inside markdown documents, not as standalone Python modules in the repo root.
 
 Evidence:
+- `requirements.txt:1`
+- `requirements.txt:11`
 - `dataset.md:122` (Python imports begin in docs)
 - `building_realtime.md:5` (Python imports begin in docs)
 
@@ -59,4 +62,3 @@ Evidence:
 - `define.md:28`
 - `dataset.md:116`
 - `dataset.md:140`
-

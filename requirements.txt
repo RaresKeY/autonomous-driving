@@ -1,0 +1,10 @@
+# Core numerical and ML stack
+numpy>=1.24,<3
+tensorflow>=2.13,<3
+
+# Computer vision and image handling
+opencv-python>=4.8,<5
+Pillow>=10,<13
+
+# Dataset visualization / QA
+matplotlib>=3.7,<4
