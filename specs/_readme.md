@@ -1,6 +1,6 @@
 # autonomous_driving - Specs Index
 
-**Tech Stack**: TBD
+**Tech Stack**: Python (TensorFlow/Keras, OpenCV, NumPy, Matplotlib, Pillow)
 
 ---
 
@@ -13,10 +13,11 @@ Scope `specs/` to modularly map the project, and split specs by logical area whe
 
 | Spec | Code | Purpose |
 |------|------|---------|
-| [`project_overview.md`](./project_overview.md) | `define.md`, `final_task.md`, repo root contents | Project scope, stated objective, current repo state, and explicit gaps. |
+| [`project_overview.md`](./project_overview.md) | `define.md`, `final_task.md`, `requirements.txt`, repo root contents | Project scope, stated objective, current repo state (including top-level dependency file), and explicit gaps. |
 | [`kitti_dataset_preparation.md`](./kitti_dataset_preparation.md) | `dataset.md` | KITTI download/setup, label format, filtering rules, parsing, visualization, and dataset stats workflow. |
 | [`model_training_pipeline.md`](./model_training_pipeline.md) | `building_realtime.md` (+ class definitions from `dataset.md`) | Detector architecture, data generator behavior, training split, callbacks, staged training, and model artifacts. |
 | [`realtime_inference_and_demo.md`](./realtime_inference_and_demo.md) | `building_realtime.md`, `final_task.md` | Inference API, overlay rendering, video/webcam processing, demo outputs, and final-task alignment. |
+| [`team_lead_contracts.md`](./team_lead_contracts.md) | `roles.md` | Team Lead integration contracts for parallel workstreams: interfaces, handoffs, acceptance criteria, and integration cadence. |
 
 ## Templates
 

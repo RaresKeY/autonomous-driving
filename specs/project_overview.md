@@ -41,12 +41,37 @@ Evidence:
 - `final_task.md:2`
 - `final_task.md:4`
 
+## Current Execution Scope (Timeboxed)
+
+The active project execution scope is timeboxed to `2 hours`. Within this timebox, the practical goal is to establish project structure and integration readiness (roles, contracts, dependencies, and initial interfaces) rather than complete full model training or final video demo delivery.
+
+Included in 2-hour scope:
+
+- Team role definition and ownership
+- Team Lead interface contracts / handoff rules
+- Dependency determination and `requirements.txt`
+- Initial implementation planning for parallel workstreams
+
+Deferred beyond 2-hour scope:
+
+- Full KITTI dataset download/validation at scale
+- End-to-end training run completion
+- Final YouTube video detection demo artifact
+
+Evidence:
+- `roles.md:1`
+- `specs/team_lead_contracts.md:1`
+- `requirements.txt:1`
+
 ## Repository State (Observed)
 
 - Root content is documentation-heavy (`define.md`, `dataset.md`, `building_realtime.md`, `final_task.md`) plus `specs/` scaffolding.
+- A top-level `requirements.txt` is present and captures the documented Python dependencies for dataset prep, training, and inference (`tensorflow`, `numpy`, `opencv-python`, `matplotlib`, `Pillow`).
 - The model and pipeline logic currently exists as code embedded inside markdown documents, not as standalone Python modules in the repo root.
 
 Evidence:
+- `requirements.txt:1`
+- `requirements.txt:11`
 - `dataset.md:122` (Python imports begin in docs)
 - `building_realtime.md:5` (Python imports begin in docs)
 
@@ -54,9 +79,9 @@ Evidence:
 
 - No standalone runnable training or inference script is present in the repo root at the time of this spec update (only markdown-based code snippets were observed).
 - The docs mention traffic signs in the high-level goal, but the tutorial implementation narrows training classes to `Car`, `Pedestrian`, and `Cyclist`.
+- The original tutorial workflow (dataset prep + training + realtime demo) exceeds the current `2-hour` planning/setup timebox and must be staged across later sessions.
 
 Evidence:
 - `define.md:28`
 - `dataset.md:116`
 - `dataset.md:140`
-
