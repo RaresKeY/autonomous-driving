@@ -4,6 +4,9 @@
 
 This spec captures the Team Lead / System Integrator contracts needed to let five assigned roles work in parallel with minimal blocking. It translates `roles.md` into explicit handoff interfaces, acceptance criteria, and integration cadence.
 
+Current planning assumption for this revision:
+- team coordination/setup is timeboxed to `2 hours` (focus on contracts, interfaces, and startup tasks rather than full implementation completion)
+
 Source:
 - `roles.md`
 
@@ -153,7 +156,7 @@ This contract is owned entirely by the Team Lead and applies to all roles.
 
 - Interfaces are frozen at the start of each sprint/phase unless an approved change request is logged
 - Teams can implement against mocks first (dummy generator, dummy model)
-- Integration happens on a fixed cadence (recommended every 2-3 days)
+- For the current `2-hour` kickoff scope, integration happens in a single midpoint sync and a final wrap-up sync within the same session
 - Interface changes require:
 - version bump (even if minor)
 - written changelog note
@@ -168,16 +171,19 @@ This contract is owned entirely by the Team Lead and applies to all roles.
 
 ## Initial Milestone Sequence (Parallel-Friendly)
 
-1. Team Lead publishes interface v0.1 contracts.
-2. Dataset, preprocessing, training, and inference teams begin in parallel using mocks where needed.
-3. Midpoint integration:
-   - real dataset manifests + split files consumed by parser/trainer
-   - real trained model consumed by inference pipeline
-4. Final integration:
-   - end-to-end video demo
-   - QA review and acceptance sign-off
+1. `0:00-0:20` Team Lead publishes interface v0.1 contracts and acceptance checklist.
+2. `0:20-1:10` Dataset, preprocessing, training, and inference roles work in parallel on startup artifacts / stubs (using mocks where needed).
+3. `1:10-1:30` Midpoint sync:
+   - confirm dataset manifest/split format
+   - confirm dataloader batch schema
+   - confirm model I/O contract for inference
+4. `1:30-2:00` Final wrap-up:
+   - document blockers and next-step handoffs
+   - freeze interface v0.1
+   - record owner-specific follow-up tasks for post-timebox implementation
 
 ## Notes
 
 - This spec is a project coordination contract derived from current `roles.md`, not a code-implemented runtime API.
+- The `2-hour` scope covers planning/setup and interface alignment only; it does not imply full model training or demo completion within the same session.
 - As code modules are created, this spec should be updated to point to exact file paths and function signatures.
