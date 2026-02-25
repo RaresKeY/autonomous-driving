@@ -31,6 +31,10 @@ Shared test utilities:
 
 This allows both per-file test execution and a final all-tests execution without renaming files to pytest defaults.
 
+Mock data note:
+
+- KITTI-like mock traversal data is generated dynamically by `sample_kitti_tree` in `tests/conftest.py` (paired `training/image_2` + `training/label_2` layout, plus an orphan-image edge case).
+
 ## Coverage Contract By Role
 
 ### `tests/inference_tests.py`
@@ -52,21 +56,21 @@ Validates `src/training.py` CLI/entrypoint contract using mocks/stubs:
 
 ### `tests/parse_tests.py`
 
-Validates `src/parse_kitti_label.py` download-role contract (current assignment) using mocks:
-
-- `COMPONENTS` supports partial download selection (`images`, `labels`)
-- `parse_args()` supports `--output-dir`, `--components`, `--no-extract`
-- `main()` orchestrates selected-component downloads/extraction/verification
-- `main()` returns non-zero on download failure
-
-### `tests/download_tests.py`
-
-Validates `src/download.py` dataset traversal contract (current assignment) using a temporary KITTI-like tree:
+Validates `src/parse_kitti_label.py` traversal/parsing-support contract using a temporary KITTI-like tree:
 
 - traversal function exists (accepted candidate names)
 - complete traversal returns deterministic sample IDs and ignores orphan image files
 - partial/subset traversal mode is supported
-- `main()` smoke path works with mocked traversal
+- `main()` smoke path works with mocked traversal and returns non-zero on traversal failure
+
+### `tests/download_tests.py`
+
+Validates `src/download.py` KITTI download CLI contract using mocks:
+
+- `COMPONENTS` supports partial download selection (`images`, `labels`)
+- `parse_args()` supports `--output-dir`, `--components`, `--no-extract`
+- `main()` orchestrates selected-component downloads/extraction/verification
+- `main()` returns non-zero on download/verify failure
 
 ## Final "Run All" Step
 
@@ -93,5 +97,7 @@ Final extra check:
 
 ## Notes
 
-- These are contract/mock tests and are expected to fail until the corresponding `src/*.py` role files exist.
+- These are contract/mock tests for the role-owned `src/*.py` modules.
+- In the current user-requested empty-file state, they are expected to fail until callable APIs are implemented.
 - `pytest` is declared in `requirements.txt`.
+- See `specs/testing_role_contracts.md` for the canonical detailed test-layout and coverage spec.

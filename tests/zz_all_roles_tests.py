@@ -15,6 +15,20 @@ def test_role_test_files_are_separate_and_present(role_test_files):
         assert path.exists(), f"Missing role test file: {path}"
 
 
+def test_role_contract_tests_are_modularized_under_subfolder(project_root):
+    role_contracts_dir = project_root / "tests" / "role_contracts"
+    assert role_contracts_dir.exists(), "Create tests/role_contracts/ for modular role contract checks"
+
+    expected = {
+        "inference_contract_checks.py",
+        "training_contract_checks.py",
+        "download_contract_checks.py",
+        "parse_contract_checks.py",
+    }
+    actual = {p.name for p in role_contracts_dir.glob("*_contract_checks.py")}
+    assert expected.issubset(actual), "Role contract test modules should exist under tests/role_contracts/"
+
+
 def test_pytest_config_supports_star_tests_pattern(project_root):
     pytest_ini = project_root / "pytest.ini"
     assert pytest_ini.exists(), "Add pytest.ini so *_tests.py files are discovered by default"

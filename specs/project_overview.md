@@ -44,12 +44,30 @@ Deferred beyond 2-hour scope:
 
 ## Repository State (Observed)
 
-- Root content is now centered on `specs/` and `requirements.txt`; the `final_task.md` note has been migrated into `specs/realtime_inference_and_demo.md`.
-- A top-level `requirements.txt` is present and captures the documented Python dependencies for dataset prep, training, inference, and testing (`tensorflow`, `numpy`, `opencv-python`, `matplotlib`, `Pillow`, `pytest`).
-- The model and pipeline logic is currently documented in specs (migrated from markdown-embedded tutorial code), not implemented as standalone Python modules in the repo root.
+- Root content now includes:
+  - `specs/` (canonical project/docs ground truth)
+  - `src/` (role-owned implementation modules)
+  - `tests/` (role-contract pytest suite, modularized under `tests/role_contracts/`)
+  - `requirements.txt`
+  - `discord_team_tasks.md` (team task message source used for assignment alignment)
+- A top-level `requirements.txt` captures documented Python dependencies for dataset prep, training, inference, testing, and demo-video download support (`tensorflow`, `ultralytics`, `numpy`, `opencv-python`, `matplotlib`, `Pillow`, `yt-dlp`, `pytest`).
+- Role-owned pipeline modules now exist in `src/`:
+  - `src/inference.py`
+  - `src/training.py`
+  - `src/parse_kitti_label.py`
+  - `src/download.py`
+- Current `src/` files exist as empty placeholders by user preference; role implementations and executable contract behavior are intentionally deferred.
+- The migrated tutorial pipeline remains documented in specs as the architectural baseline, while `src/` currently serves as file-level ownership placeholders only.
 
 ## Gaps / Open Questions
 
-- No standalone runnable training or inference script is present in the repo root at the time of this spec update (only markdown-based code snippets were observed).
 - The docs mention traffic signs in the high-level goal, but the tutorial implementation narrows training classes to `Car`, `Pedestrian`, and `Cyclist`.
-- The original tutorial workflow (dataset prep + training + realtime demo) exceeds the current `2-hour` planning/setup timebox and must be staged across later sessions.
+- The current role files are empty placeholders, so role-contract tests fail until callable surfaces are implemented.
+- `src/training.py` does not yet implement a real YOLO + MobileNetV2 custom-backbone training run.
+- `src/parse_kitti_label.py` and `src/download.py` are aligned to filename semantics at the assignment level, but behavior is not implemented in the empty-file state.
+- The original tutorial workflow (dataset prep + training + realtime demo) still exceeds the initial `2-hour` planning/setup timebox and must be staged across later sessions.
+
+## Verification Snapshot (2026-02-25)
+
+- After reverting `src/` role modules to empty files (user preference), the role-contract test suite no longer passes.
+- Latest observed pytest result in this state: `19 failed, 4 passed` (`tests/`).

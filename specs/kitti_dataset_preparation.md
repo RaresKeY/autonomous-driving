@@ -8,6 +8,25 @@ This spec is the canonical home for the migrated KITTI dataset tutorial notes pr
 
 The repository uses KITTI as the benchmark dataset for autonomous driving perception and specifically for the object detection tutorial workflow.
 
+## External Reference Constraints (Validated Online, 2026-02-25)
+
+Official KITTI 2D object evaluation documentation confirms:
+
+- object benchmark scale includes `7481` training images and `7518` test images
+- evaluation is precision-recall based (and orientation similarity for orientation estimation)
+- an object development kit is provided for label-format and file IO support
+- benchmark scoring uses class-specific IoU thresholds:
+  - `Car`: `70%`
+  - `Pedestrian`: `50%`
+  - `Cyclist`: `50%`
+- difficulty settings depend on minimum bbox height, max occlusion level, and truncation limits
+- minor modifications / student projects should be evaluated on a split of the training set, not the official test server
+
+Implication for this repo:
+
+- Use local train/val splits from the public KITTI training set for team validation and demo iteration.
+- Treat tutorial/demo metrics as local validation metrics, not official KITTI leaderboard results.
+
 ## Dataset Characteristics Noted In Docs
 
 - 7,481 training images
@@ -27,6 +46,10 @@ The docs specify downloading KITTI object images and labels, then extracting int
 
 The docs include shell checks to verify the presence and counts of image/label files, expecting `7481` for both training images and labels.
 
+Constraint refinement:
+
+- For repo setup validation, verify only the public training split assets (`training/image_2`, `training/label_2`) and their counts.
+
 ## Label Format Usage For This Project
 
 KITTI label rows are described as containing object type, truncation, occlusion, alpha, and bounding box coordinates. For the tutorial object detector, the relevant fields are:
@@ -45,6 +68,10 @@ The tutorial narrows the training scope to three classes:
 - `Cyclist`
 
 It also states a filtering strategy for cleaner training examples (drop other classes and heavily occluded objects).
+
+Constraint refinement:
+
+- Tutorial filtering rules (occlusion/truncation/min-height) are local training-cleaning choices and must not be conflated with official KITTI difficulty definitions.
 
 ## Dataset Loader Configuration And Parsing Rules
 
@@ -73,3 +100,9 @@ The docs include a visualization helper to draw class-colored bounding boxes on 
 ## Output Artifacts Mentioned
 
 The dataset inspection workflow saves example images named like `kitti_sample_<id>.png`.
+
+## Current Repo Module Alignment Note
+
+- Current role-contract implementations are aligned to filename semantics:
+  - `src/parse_kitti_label.py` provides KITTI traversal/parsing-support contract behavior
+  - `src/download.py` provides KITTI download CLI contract behavior

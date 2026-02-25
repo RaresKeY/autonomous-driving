@@ -14,13 +14,17 @@ Use this first before deep reads.
 ## 2) Documentation Files
 Read all docs before writing/updating specs.
 
+- [ ] `discord_team_tasks.md`
 - [ ] `specs/_ground_truth_read_todo.md`
 - [ ] `specs/_readme.md`
+- [ ] `specs/current_role_implementation_assignments.md`
 - [ ] `specs/kitti_dataset_preparation.md`
 - [ ] `specs/model_training_pipeline.md`
 - [ ] `specs/project_overview.md`
 - [ ] `specs/realtime_inference_and_demo.md`
+- [ ] `specs/separate_role_test_suite.md`
 - [ ] `specs/team_lead_contracts.md`
+- [ ] `specs/testing_role_contracts.md`
 
 Legacy docs removed after migration to `specs/` (2026-02-25):
 - `building_realtime.md`
@@ -32,12 +36,15 @@ Legacy docs removed after migration to `specs/` (2026-02-25):
 ## 3) Code & Config Files
 Read implementation and configuration to establish ground truth.
 
-- [ ] (No code/config files detected)
+- [ ] `pytest.ini`
+- [ ] `src/`
+- [ ] `tests/`
 
 ## 4) Other Files (Optional)
 Review if needed for architecture, behavior, or operations context.
 
-- [ ] (No additional files detected)
+- [ ] `scripts/`
+- [ ] `anca_training/`
 
 ## Iteration Loop
 - [ ] Update `specs/` from currently read evidence.

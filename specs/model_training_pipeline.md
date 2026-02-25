@@ -11,6 +11,57 @@ The documented approach is transfer learning with:
 - MobileNetV2 backbone pre-trained on ImageNet
 - Custom detection head trained on KITTI
 
+## Current Repo Implementation Status (2026-02-25)
+
+- `src/training.py` exists and provides a contract-compliant CLI/training entrypoint surface for integration and tests.
+- The current implementation is intentionally lightweight and returns artifact metadata (contract-first behavior) instead of running full training.
+- This spec remains the tutorial baseline and records additional constraints for the future "YOLO + MobileNetV2" implementation target.
+
+## External Architecture Constraints (Validated Online, 2026-02-25)
+
+### MobileNetV2 (paper-level)
+
+MobileNetV2 introduces inverted residuals and linear bottlenecks, and the paper explicitly applies the family to detection/segmentation tasks.
+
+Implication:
+
+- MobileNetV2 is a valid lightweight backbone candidate for AV perception, but the original MobileNetV2 object-detection examples are not YOLO by default.
+
+### Ultralytics YOLO training constraints
+
+Ultralytics train docs support:
+
+- training from pretrained `.pt` weights (recommended)
+- building from `.yaml` architecture config
+- building from `.yaml` and transferring matching pretrained weights
+- transfer-learning controls such as layer freezing
+- dataset fraction/subsetting controls during training runs
+
+Implication for Anca's "YOLO + MobileNetV2" task:
+
+- This is a custom architecture integration task, not a simple model-name switch.
+- The implementation should document one explicit path:
+  - custom YAML backbone path (including channel/stride compatibility), or
+  - custom source module integration in Ultralytics, or
+  - phased delivery: baseline YOLO first, MobileNetV2-backed YOLO second
+
+### Ultralytics custom YAML/backbone constraints
+
+Ultralytics YAML/model docs highlight:
+
+- custom module integration may require source-code changes/import wiring
+- channel mismatch is a common failure mode when customizing backbones/heads
+- `model.info()` and layer inspection are recommended validation/debugging steps
+- loading pretrained weights into a custom YAML only transfers matching layers
+
+Required documentation for a real custom YOLO+MobileNetV2 experiment in this repo:
+
+- model YAML path / variant
+- class count alignment (`nc=3` for `Car`, `Pedestrian`, `Cyclist`)
+- pretrained weights source and expected partial weight transfer behavior
+- freeze/unfreeze strategy (if used)
+- validation sanity check (`model.info()` / layer summary) before long training runs
+
 ## Core Model Configuration
 
 The tutorial defines:
@@ -77,9 +128,19 @@ The training pipeline uses:
 - Best checkpoint: `av_perception_best.keras`
 - Final saved model: `av_perception_final.keras`
 
+Current repo note:
+
+- `src/training.py` currently returns these artifact names as placeholders for integration/test consistency; the files are not produced by a real training loop yet.
+
 ## Performance Expectations (Training)
 
 The docs state estimated training time:
 
 - CPU: ~2-4 hours
 - GPU: ~20-40 minutes
+
+## Architecture Divergence Note (Tutorial vs Current Team Ask)
+
+- The migrated tutorial baseline is a TensorFlow/Keras MobileNetV2 + custom detection head.
+- The current team assignment for `src/training.py` is a YOLO-based pipeline using MobileNetV2 concepts/backbone customization.
+- Treat tutorial losses/metrics/timings in this spec as baseline guidance, not as finalized expectations for the future Ultralytics-based implementation.
