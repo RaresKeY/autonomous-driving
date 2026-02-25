@@ -2,13 +2,16 @@
 
 ## Purpose
 
-This spec captures the Team Lead / System Integrator contracts needed to let five assigned roles work in parallel with minimal blocking. It translates `roles.md` into explicit handoff interfaces, acceptance criteria, and integration cadence.
+This spec captures the Team Lead / System Integrator contracts needed to let five assigned roles work in parallel with minimal blocking. It preserves and expands the original team-role planning notes into explicit handoff interfaces, acceptance criteria, and integration cadence.
 
 Current planning assumption for this revision:
 - team coordination/setup is timeboxed to `2 hours` (focus on contracts, interfaces, and startup tasks rather than full implementation completion)
 
-Source:
-- `roles.md`
+## Canonicalization Status
+
+This spec is the canonical home for the migrated team-role planning notes previously kept in a root markdown file. The legacy file was removed on 2026-02-25 after consolidation into `specs/`.
+
+Implementation-assignment reality may differ from these planning contracts. See `specs/current_role_implementation_assignments.md` for the latest owner -> file -> mock-test mapping provided by the team.
 
 ## Team Assignments (Current)
 
@@ -17,9 +20,6 @@ Source:
 - Data Parsing / Preprocessing / Generator Engineer: `Mihaela`
 - Model Training Engineer: `Anca`
 - Inference / Demo / Evaluation Engineer: `Paul`
-
-Source:
-- `roles.md`
 
 ## Team Lead Scope (Contract Owner)
 
@@ -30,9 +30,6 @@ The Team Lead owns:
 - merge / integration decisions
 - acceptance criteria for each handoff
 - change-control decisions when interfaces must change
-
-Source:
-- `roles.md`
 
 ## Contract 1: Dataset Collection -> Downstream Consumers
 
@@ -184,6 +181,6 @@ This contract is owned entirely by the Team Lead and applies to all roles.
 
 ## Notes
 
-- This spec is a project coordination contract derived from current `roles.md`, not a code-implemented runtime API.
+- This spec is a project coordination contract derived from the migrated role-planning notes, not a code-implemented runtime API.
 - The `2-hour` scope covers planning/setup and interface alignment only; it does not imply full model training or demo completion within the same session.
 - As code modules are created, this spec should be updated to point to exact file paths and function signatures.

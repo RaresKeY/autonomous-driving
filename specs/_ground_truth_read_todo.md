@@ -14,16 +14,20 @@ Use this first before deep reads.
 ## 2) Documentation Files
 Read all docs before writing/updating specs.
 
-- [ ] `building_realtime.md`
-- [ ] `dataset.md`
-- [ ] `define.md`
-- [ ] `final_task.md`
 - [ ] `specs/_ground_truth_read_todo.md`
 - [ ] `specs/_readme.md`
 - [ ] `specs/kitti_dataset_preparation.md`
 - [ ] `specs/model_training_pipeline.md`
 - [ ] `specs/project_overview.md`
 - [ ] `specs/realtime_inference_and_demo.md`
+- [ ] `specs/team_lead_contracts.md`
+
+Legacy docs removed after migration to `specs/` (2026-02-25):
+- `building_realtime.md`
+- `dataset.md`
+- `define.md`
+- `final_task.md` (migrated into `specs/realtime_inference_and_demo.md`)
+- `roles.md`
 
 ## 3) Code & Config Files
 Read implementation and configuration to establish ground truth.
