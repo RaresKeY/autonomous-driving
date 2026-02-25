@@ -27,5 +27,5 @@ def test_role_target_mapping_matches_current_specs(role_targets):
     # Meta-test for the agreed owner -> target-file mapping.
     assert role_targets["Paul"].as_posix().endswith("/src/inference.py")
     assert role_targets["Anca"].as_posix().endswith("/src/training.py")
-    assert role_targets["Mihaela"].as_posix().endswith("/src/download.py")
-    assert role_targets["Claudia"].as_posix().endswith("/src/parse_kitti_label.py")
+    assert role_targets["Mihaela"].as_posix().endswith("/src/parse_kitti_label.py")
+    assert role_targets["Claudia"].as_posix().endswith("/src/download.py")

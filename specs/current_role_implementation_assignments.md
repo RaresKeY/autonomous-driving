@@ -15,6 +15,10 @@ Before role-specific implementation work begins, all team members are expected t
 - pull the latest repository state
 - push a small test file to confirm write access (access-check validation)
 
+## Test Alignment Rule (User Instruction, 2026-02-25)
+
+If mock tests do not align with validated implementation findings, the tests may be modified. Changes should be accompanied by a short reason (for example in commit/PR notes) so the team can track why the mock expectations changed.
+
 ## Role-to-Implementation Mapping (Current)
 
 | Person | Responsibility (as stated) | Target File | Mock Test Gate |

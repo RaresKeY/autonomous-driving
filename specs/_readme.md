@@ -19,6 +19,7 @@ Scope `specs/` to modularly map the project, and split specs by logical area whe
 | [`realtime_inference_and_demo.md`](./realtime_inference_and_demo.md) | Canonical spec (migrated tutorial inference notes) + migrated final-task note | Inference API, overlay rendering, video/webcam processing, demo outputs, and final-task alignment. |
 | [`team_lead_contracts.md`](./team_lead_contracts.md) | Canonical spec (migrated team role/contract notes) | Team Lead integration contracts for parallel workstreams: interfaces, handoffs, acceptance criteria, and integration cadence. |
 | [`current_role_implementation_assignments.md`](./current_role_implementation_assignments.md) | User-provided role update (2026-02-25) | Current execution reality: exact owner -> file path -> mock test acceptance mapping, plus mismatches vs planning roles. |
+| [`separate_role_test_suite.md`](./separate_role_test_suite.md) | `pytest.ini`, `tests/`, `specs/current_role_implementation_assignments.md` | Separate per-role mock/contract test suite layout, coverage contracts, discovery rules, and final run-all checks. |
 
 ## Migration Notes
 

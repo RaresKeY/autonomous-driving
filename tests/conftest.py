@@ -14,15 +14,15 @@ SRC_DIR = PROJECT_ROOT / "src"
 ROLE_TARGETS = {
     "Paul": SRC_DIR / "inference.py",
     "Anca": SRC_DIR / "training.py",
-    "Mihaela": SRC_DIR / "download.py",
-    "Claudia": SRC_DIR / "parse_kitti_label.py",
+    "Mihaela": SRC_DIR / "parse_kitti_label.py",
+    "Claudia": SRC_DIR / "download.py",
 }
 
 ROLE_TEST_FILES = {
     "Paul": PROJECT_ROOT / "tests" / "inference_tests.py",
     "Anca": PROJECT_ROOT / "tests" / "training_tests.py",
-    "Mihaela": PROJECT_ROOT / "tests" / "download_tests.py",
-    "Claudia": PROJECT_ROOT / "tests" / "parse_tests.py",
+    "Mihaela": PROJECT_ROOT / "tests" / "parse_tests.py",
+    "Claudia": PROJECT_ROOT / "tests" / "download_tests.py",
 }
 
 
