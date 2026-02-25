@@ -20,6 +20,7 @@ Read all docs before writing/updating specs.
 - [ ] `specs/current_role_implementation_assignments.md`
 - [ ] `specs/kitti_dataset_preparation.md`
 - [ ] `specs/model_training_pipeline.md`
+- [ ] `specs/operations_build_release.md`
 - [ ] `specs/project_overview.md`
 - [ ] `specs/realtime_inference_and_demo.md`
 - [ ] `specs/separate_role_test_suite.md`
