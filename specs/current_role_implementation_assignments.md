@@ -25,6 +25,17 @@ If mock tests do not align with validated implementation findings, the tests may
 
 Temporary scripts, experiments, or one-off helpers that are not part of the actual pipeline contract should be placed under `scripts/` rather than `src/`. The `src/` directory should remain focused on role-owned pipeline modules and integration-facing code.
 
+## Early Pipeline Bootstrap Components Rule (User Instruction, 2026-02-25)
+
+Team members and AIs may create earlier-stage pipeline components under `scripts/` when those pieces are needed to unblock downstream work before the assigned role delivers the final `src/` implementation.
+
+Constraints:
+
+- these `scripts/` components are temporary bridge implementations, not ownership overrides for role-assigned `src/` files
+- they must be pluggable/swappable so the later role-owned "actual" script can replace them with minimal downstream changes
+- interfaces (inputs/outputs/CLI flags/file formats) should follow the current role contract specs whenever possible
+- any intentional temporary deviation should be documented briefly in code comments or handoff notes
+
 ## Deliverable Structure Guidance (User Instruction, 2026-02-25)
 
 The team requested role tasks to include concrete deliverable structure details (what scripts must do, what they should return, and why). The guidance below should be used for assignment messages and implementation planning.
