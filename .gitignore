@@ -1,0 +1,76 @@
+# Python bytecode / caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Packaging / build outputs
+build/
+dist/
+site/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+*.whl
+
+# Test / coverage / type-check caches
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+.pyre/
+.hypothesis/
+.tox/
+.nox/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# IDE / editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs / temp files
+*.log
+*.tmp
+*.temp
+tmp/
+temp/
+
+# Environment / secrets (keep examples tracked separately)
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# Common local ML/data artifacts (do not store large generated files)
+artifacts/
+outputs/
+runs/
+wandb/
+mlruns/
+checkpoints/
+*.ckpt
+*.h5
+*.keras
+*.onnx
+*.tflite
+
+# Media outputs often generated during demos/tests
+*.mp4
+*.avi
+*.mov
