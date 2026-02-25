@@ -11,3 +11,6 @@ matplotlib>=3.7,<4
 
 # YouTube video downloading
 yt-dlp>=2024.1,<2025
+
+# Testing
+pytest>=8,<9

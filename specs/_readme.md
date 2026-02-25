@@ -1,6 +1,6 @@
 # autonomous_driving - Specs Index
 
-**Tech Stack**: Python (TensorFlow/Keras, OpenCV, NumPy, Matplotlib, Pillow)
+**Tech Stack**: Python (TensorFlow/Keras, OpenCV, NumPy, Matplotlib, Pillow, pytest)
 
 ---
 

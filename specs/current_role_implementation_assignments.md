@@ -6,22 +6,31 @@ This document captures the current execution reality for team assignments (exact
 
 Date captured: `2026-02-25`
 
+## Team-Wide GitHub Onboarding / Access Check (User Instruction, 2026-02-25)
+
+Before role-specific implementation work begins, all team members are expected to:
+
+- accept the GitHub repository invite
+- ensure local Git/GitHub setup is working
+- pull the latest repository state
+- push a small test file to confirm write access (access-check validation)
+
 ## Role-to-Implementation Mapping (Current)
 
 | Person | Responsibility (as stated) | Target File | Mock Test Gate |
 |---|---|---|---|
 | `Paul` | Script that renders bounding boxes over a video in real time using any model | `src/inference.py` | `tests/inference_tests.py` |
 | `Anca` | Script that trains on KITTI using YOLO with MobileNetV2 | `src/training.py` | `tests/training_tests.py` |
-| `Mihaela` | Script that traverses KITTI dataset (complete/partial) for another script (`parse_kitti_label`) | `src/download.py` | `tests/download_tests.py` |
-| `Claudia` | Script that downloads KITTI complete/partial, configurable destination and what to download | `src/parse_kitti_label.py` | `tests/parse_tests.py` |
+| `Mihaela` | Script that traverses KITTI dataset (complete/partial) for another script (`parse_kitti_label`) | `src/parse_kitti_label.py` | `tests/parse_tests.py` |
+| `Claudia` | Script that downloads KITTI complete/partial, configurable destination and what to download | `src/download.py` | `tests/download_tests.py` |
 
 ## Differences Vs `specs/team_lead_contracts.md`
 
 - The team contracts spec is interface/handoff oriented; this doc is implementation-task oriented (exact file ownership + test gates).
 - `Paul` and `Anca` match the expected high-level domains (inference, training), but now have explicit file targets and test files.
-- `Mihaela` and `Claudia` responsibilities appear swapped relative to filename semantics:
-  - `Mihaela` has dataset traversal/parsing-adjacent work but target file is `src/download.py`.
-  - `Claudia` has downloading work but target file is `src/parse_kitti_label.py`.
+- `Mihaela` and `Claudia` are aligned with filename semantics in this corrected mapping:
+  - `Mihaela` owns parsing/traversal work in `src/parse_kitti_label.py`.
+  - `Claudia` owns download work in `src/download.py`.
 - Acceptance criteria are now concretely "passes mock tests", which is stricter/more executable than the earlier checklist-style role contracts.
 
 ## Test Execution Rules (Current)
@@ -32,6 +41,12 @@ Date captured: `2026-02-25`
   - `tests/download_tests.py`
   - `tests/parse_tests.py`
 - A "run all tests" step is an extra final check after the per-role mock tests pass.
+
+## Implemented Test Suite Artifacts (Current Repo)
+
+- `pytest.ini` enables discovery of `*_tests.py` files under `tests/`.
+- `tests/conftest.py` contains shared fixtures/helpers for role contract tests.
+- `tests/zz_all_roles_tests.py` is the extra final meta-test file (named to run last alphabetically).
 
 ## Naming Notes
 

@@ -45,7 +45,7 @@ Deferred beyond 2-hour scope:
 ## Repository State (Observed)
 
 - Root content is now centered on `specs/` and `requirements.txt`; the `final_task.md` note has been migrated into `specs/realtime_inference_and_demo.md`.
-- A top-level `requirements.txt` is present and captures the documented Python dependencies for dataset prep, training, and inference (`tensorflow`, `numpy`, `opencv-python`, `matplotlib`, `Pillow`).
+- A top-level `requirements.txt` is present and captures the documented Python dependencies for dataset prep, training, inference, and testing (`tensorflow`, `numpy`, `opencv-python`, `matplotlib`, `Pillow`, `pytest`).
 - The model and pipeline logic is currently documented in specs (migrated from markdown-embedded tutorial code), not implemented as standalone Python modules in the repo root.
 
 ## Gaps / Open Questions
