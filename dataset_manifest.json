@@ -1,0 +1,26 @@
+{
+    "dataset_name": "KITTI",
+    "license": "KITTI Vision Benchmark Suite - see official website for usage terms",
+    "image_directory": "C:\\Users\\Claudia Tatucu\\datasets\\kitti\\training\\image_2",
+    "label_directory": "C:\\Users\\Claudia Tatucu\\datasets\\kitti\\training\\label_2",
+    "total_images": 7481,
+    "total_labels": 7481,
+    "class_distribution": {
+        "Pedestrian": 4487,
+        "Truck": 1094,
+        "Car": 28742,
+        "Cyclist": 1627,
+        "DontCare": 11295,
+        "Misc": 973,
+        "Van": 2914,
+        "Tram": 511,
+        "Person_sitting": 222
+    },
+    "missing_labels": [],
+    "missing_images": [],
+    "split": {
+        "train": 5236,
+        "val": 1122,
+        "test": 1123
+    }
+}
