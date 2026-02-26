@@ -128,8 +128,26 @@ def train_model(
         best_model = run_dir / "weights" / "best.pt"
         last_model = run_dir / "weights" / "last.pt"
 
+        # Copiaza best.pt in models/ pentru Paul
+        import shutil
+        models_dir = Path("models")
+        models_dir.mkdir(exist_ok=True)
+        best_model_copy = models_dir / "best.pt"
+        if best_model.exists():
+            shutil.copy(best_model, best_model_copy)
+            print(f"\n  Model copiat pentru Paul: {best_model_copy}")
+
+            # Copiaza best.pt in models/ pentru Paul
+        import shutil
+        models_dir = Path("models")
+        models_dir.mkdir(exist_ok=True)
+        best_model_copy = models_dir / "best.pt"
+        if best_model.exists():
+            shutil.copy(best_model, best_model_copy)
+            print(f"\n  Model copiat pentru Paul: {best_model_copy}")
+
         artifacts = {
-            "best_model":  str(best_model),
+            "best_model":  str(best_model_copy),
             "final_model": str(last_model),
             "run_dir":     str(run_dir),
         }
