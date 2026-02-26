@@ -1,0 +1,24 @@
+# config.yaml
+# Configurare antrenare YOLOv8 - Anca
+
+model:
+  architecture: yolov8n    # yolov8n = nano, cel mai mic si rapid (bun pe CPU)
+  pretrained: true         # pornim de la weights pre-antrenate (transfer learning)
+
+data:
+  num_classes: 3
+  classes:
+    - Car
+    - Pedestrian
+    - Cyclist
+  img_size: 640
+
+training:
+  epochs: 10               # pentru test; marim mai tarziu
+  batch_size: 4            # mic pentru CPU
+  learning_rate: 0.01
+  device: cpu
+
+output:
+  run_name: experiment_v1
+  save_dir: runs/
